@@ -9,14 +9,12 @@ public class Main {
 
        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
        
-       String str;
-       
-       while((str = br.readLine()) != null) {
-    	   StringTokenizer st = new StringTokenizer(str);
+       while(true) {
+    	   StringTokenizer st = new StringTokenizer(br.readLine());
     	   int fir = Integer.parseInt(st.nextToken());
     	   int sec = Integer.parseInt(st.nextToken());
     	   
-    	   if(fir == 0 && sec == 0) {
+    	   if(fir + sec == 0) {
     		   break;
     	   }
     	   
