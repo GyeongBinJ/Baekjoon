@@ -16,11 +16,7 @@ public class Main {
     	
     	Arrays.sort(arr);
     	
-    	int sum = 0;
-    	
-    	for(int i = 0; i < 5; i++) {
-    		sum += arr[i];
-    	}
+    	int sum = Arrays.stream(arr).sum();
     	
     	System.out.println(sum / 5);
     	System.out.println(arr[2]);
