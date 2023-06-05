@@ -14,7 +14,7 @@ public class Main {
     	int n = Integer.parseInt(st.nextToken());
     	int k = Integer.parseInt(st.nextToken());
     	
-    	int[] arr = new int[n];
+    	Integer[] arr = new Integer[n];
     	
     	st = new StringTokenizer(br.readLine());
     	
@@ -22,10 +22,9 @@ public class Main {
     		arr[i] = Integer.parseInt(st.nextToken());
     	}
     	
-    	Integer[] tmp = Arrays.stream(arr).boxed().toArray(Integer[]::new);
-    	Arrays.sort(tmp, Comparator.reverseOrder());
+    	Arrays.sort(arr, Comparator.reverseOrder());
     	
-    	System.out.println(tmp[k - 1]);
+    	System.out.println(arr[k - 1]);
     	
     }
 }
