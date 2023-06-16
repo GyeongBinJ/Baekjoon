@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Stack;
 
 public class Main {
 
@@ -20,23 +21,21 @@ public class Main {
 	}
 	
 	public static String result(String s) {
-		int count = 0;
+		Stack<Character> stack = new Stack<Character>();
 		
 		for(int i = 0; i < s.length(); i++) {
 			char ch = s.charAt(i);
 			
 			if(ch == '(') {
-				count++;
-			} else if(count == 0) {
-				
+				stack.push(ch);
+			} else if(stack.isEmpty()) {
 				return "NO";
-			
 			} else {
-				count--;
+				stack.pop();
 			}
 		}
 		
-		if(count == 0) {
+		if(stack.isEmpty()) {
 			return "YES";
 		} else {
 			return "NO";
