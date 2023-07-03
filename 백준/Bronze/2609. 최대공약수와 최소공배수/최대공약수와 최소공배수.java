@@ -12,34 +12,21 @@ public class Main {
     	int n = Integer.parseInt(st.nextToken());
     	int m = Integer.parseInt(st.nextToken());
     	
-    	int g = 0; // 최대 공약수
-    	int l = 0; // 최소 공배수
+    	int d = gcd(n, m);
     	
-    	// 최대 공약수 구하기
-    	for(int i = 1; i <= n; i++) {
-    		for(int j = 1; j <= m; j++) {
-    			if(n % i == 0) {
-    				if(m % j == 0 && i == j) {
-    					g = i;
-    					break;
-    				}
-    			}
-    		}
-    	}
+    	System.out.println(d);
+    	System.out.println(n * m / d);
     	
-    	int max = Math.max(n, m);
-    	// 최소 공배수 구하기
-    	for(int i = max; i >= max; i++) {
-    		if(i % n == 0 && i % m == 0) {
-    			l = i;
-    			break;
-    		}
-    	}
-    	
-    	System.out.println(g);
-    	System.out.println(l);
     	
 	}
 	
-}	
+	public static int gcd(int a, int b) {
+		if(b == 0) {
+			return a;
+		}
+		
+		return gcd(b, a % b);
+	}
 	
+	
+}	
