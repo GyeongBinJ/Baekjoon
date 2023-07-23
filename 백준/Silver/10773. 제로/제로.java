@@ -17,7 +17,7 @@ public class Main {
     		
     		if(num != 0) {
     			stack.push(num);
-    		} else if(num == 0){
+    		} else {
     			stack.pop();
     		}
     	}
