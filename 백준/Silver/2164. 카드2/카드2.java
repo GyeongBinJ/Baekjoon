@@ -19,12 +19,9 @@ public class Main {
     	}
     	
     	while(queue.size() != 1) {
-    		// 큐 첫번째 값 제거
-    		queue.remove();
-    		
-    		int num = queue.peek();
     		queue.poll();
-    		queue.offer(num);
+    		
+    		queue.offer(queue.poll());
     		
     	}
     	
