@@ -17,16 +17,19 @@ public class Main {
     	int c = Integer.parseInt(st.nextToken());
     	int d = Integer.parseInt(st.nextToken());
     	
-    	int num = a * d + b * c;
-    	int deno = b * d;
+    	int numerator = a * d + b * c;
+    	int denominator = b * d;
     	
-    	int gcd = gcd(num, deno);
-    	
-    	num /= gcd;
-    	deno /= gcd;
-    	
-    	System.out.println(num + " " + deno);
-    	
+    	reduceFraction(numerator, denominator);
+	}
+	
+	public static void reduceFraction(int numerator, int denominator) {
+		int gcd = gcd(numerator, denominator);
+		
+		int reduceNumerator = numerator / gcd;
+		int reducedDenominator = denominator / gcd;
+		
+		System.out.println(reduceNumerator + " " + reducedDenominator);
 	}
 	
 	public static int gcd(int a, int b) {
@@ -42,4 +45,3 @@ public class Main {
 	}
 	
 }
-	
