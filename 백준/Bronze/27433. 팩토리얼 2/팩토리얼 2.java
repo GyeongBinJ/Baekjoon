@@ -7,23 +7,19 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		int[] arr = new int[21];
+		int n = Integer.parseInt(br.readLine());
 		
-		for(int i = 0; i < arr.length; i++) {
-			arr[i] = i + 1;
-		}
-		
-		int num = Integer.parseInt(br.readLine());
-		
-		long result = 1;
-		
-		for(int i = 0; i < num; i++) {
-			result *= arr[i];
-		}
-		
-		System.out.println(result);
+		System.out.println(factorial(n));
 		
 	}
 	
-}
+	public static long factorial(int n) {
+		
+		if(n <= 1) {
+			return 1;
+		} else {
+			return factorial(n - 1) * n;
+		}
+	}
 	
+}
