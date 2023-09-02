@@ -5,16 +5,13 @@ import java.util.StringTokenizer;
 
 public class Main {
 	
-	static int[] arr;
-	static Integer[] dp;
-	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int n = Integer.parseInt(br.readLine());
 		
-		arr = new int[n];
-		dp = new Integer[n];
+		int[] arr = new int[n];
+		int[] dp = new int[n];
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
@@ -22,10 +19,18 @@ public class Main {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
 		for(int i = 0; i < n; i++) {
-			search(i);
+			dp[i] = 1;
+			
+			// 0 ~ i 이전 탐색
+			for(int j = 0; j < i; j++) {
+				
+				if(arr[j] < arr[i] && dp[i] < dp[j] + 1) {
+					dp[i] = dp[j] + 1;
+				}
+			}
 		}
 		
-		int max = dp[0];
+		int max = -1;
 		
 		for(int i = 0; i < n; i++) {
 			max = Math.max(max, dp[i]);
@@ -33,20 +38,5 @@ public class Main {
 		
 		System.out.println(max);
 		
-	}
-	
-	static int search(int n) {
-		
-		if(dp[n] == null) {
-			dp[n] = 1;
-			
-			for(int i = n - 1; i >= 0; i--) {
-				if(arr[i] < arr[n]) {
-					dp[n] = Math.max(dp[n], search(i) + 1);
-				}
-			}
-		}
-		
-		return dp[n];
 	}
 }
