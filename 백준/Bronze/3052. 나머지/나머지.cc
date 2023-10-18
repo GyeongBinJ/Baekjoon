@@ -1,6 +1,4 @@
 #include <iostream>
-#include <algorithm>
-#include <vector>
 
 using namespace std;
 
@@ -8,18 +6,23 @@ int main()
 {
 	ios_base::sync_with_stdio(false);
 
-	vector<int> vec;
-	int num;
+	int count[42] = {};
 
+	int n;
 	for (int i = 0; i < 10; i++) {
-		cin >> num;
-		vec.push_back(num % 42);
+		cin >> n;
+		count[n % 42]++;
 	}
 
-	sort(vec.begin(), vec.end());
-	vec.erase(unique(vec.begin(), vec.end()), vec.end());
+	int result = 0;
 
-	cout << vec.size();
+	for (int n : count) {
+		if (n > 0) {
+			result++;
+		}
+	}
+
+	cout << result;
 
 	return 0;
 }
