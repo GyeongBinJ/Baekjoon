@@ -1,39 +1,30 @@
 #include <iostream>
-
+#include <algorithm>
 using namespace std;
 
 int main()
 {
 	ios_base::sync_with_stdio(false);
+	cout.tie(0);
 
 	int n;
+	double sum = 0;
 
 	cin >> n;
 
-	double arr[1000];
+	double arr[1001];
 
 	for (int i = 0; i < n; i++) {
 		cin >> arr[i];
 	}
 
-	double max = arr[0];
-
-	for (int i = 1; i < n; i++) {
-		if (max < arr[i])
-			max = arr[i];
-	}
+	sort(arr, arr + n);
 
 	for (int i = 0; i < n; i++) {
-		arr[i] = arr[i] / max * 100;
+		sum = sum + (arr[i] / arr[n - 1]) * 100;
 	}
 
-	double sum = 0;
-
-	for (int i = 0; i < n; i++) {
-		sum += arr[i];
-	}
-
-	cout << sum / n << "";
+	cout << sum / n;
 
 	return 0;
 }
